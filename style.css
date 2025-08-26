@@ -1,106 +1,10 @@
+/* 🎯 Styles de base */
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   background-color: black;
-  overflow: hidden;
-}
-
-
-.text_card {
-  width: 100%;
-  height: auto;
-  text-align: center;
-  font-size: 2.2rem;
-  color: white;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  min-height: 100vh;
-  background: #000;
-}
-
-.cont {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: auto;
-  margin-top: 50px;
-}
-
-
-.box {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  transform-style: preserve-3d;
-  animation: animate 20s linear infinite;
-}
-
-@keyframes animate {
-
-  0% {
-    transform: perspective(1000px) rotateY(0deg);
-  }
-
-  100% {
-    transform: perspective(1000px) rotateY(360deg);
-  }
-
-}
-
-.box span {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform-origin: center;
-  transform-style: preserve-3d;
-  transform: rotateY(calc(var(--i) * 45deg)) translateZ(260px);
-}
-
-.box span img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.rest_card {
-  width: 100%;
-  height: auto;
-  margin-top: 80px;
-  margin-bottom: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center; flex-direction: column;
-}
-
-.rest_card a{
- color: white;
- font-size: 20px;
- font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-.rest_card button{
- padding: 5;
- width: 100px;
- height: 40px;
- border-radius: 30px;
- border: none;
- background-color: yellow;
- margin-top: 20px;
- cursor: pointer;
+  overflow-x: hidden;
 }
 
 .confetti {
@@ -116,43 +20,136 @@ body {
 
 @keyframes fall {
   to {
-     transform: translateY(100vh) rotate(360deg);
-     opacity: 0;
- }
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
 }
 
-/* 📱 Mobile */
-@media (max-width: 600px) {
+.text_card {
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+  padding: 20px;
+  line-height: 1.5;
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #000;
+  padding: 10px;
+}
+
+.cont {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.box {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  transform-style: preserve-3d;
+  animation: animate 20s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: perspective(100px) rotateY(0deg);
+  }
+
+  100% {
+    transform: perspective(100px) rotateY(360deg);
+  }
+}
+
+.box span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  transform: rotateY(calc(var(--i) * 45deg)) translateZ(320px);
+}
+
+.box span img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.rest_card {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.rest_card a {
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.rest_card button {
+  padding: 10px;
+  width: 120px;
+  height: 45px;
+  border-radius: 30px;
+  border: none;
+  background-color: yellow;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.rest_card button:hover {
+  background-color: orange;
+}
+
+/* 🎉 Responsivité mobile (≤600px) */
+@media (max-width: 360px) {
   .text_card {
     font-size: 1.2rem;
+    padding: 15px;
   }
+
   .box {
-    width: 150px;
-    height: 150px;
+    width: 160px;
+    height: 160px;
   }
+
   .box span {
     transform: rotateY(calc(var(--i) * 45deg)) translateZ(200px);
   }
-  .rest_card a {
-    font-size: 16px;
+
+  .rest_card {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    gap: 10px;
   }
-  .rest_card button {
-    width: 100px;
-    height: 40px;
+
+  .rest_card a {
     font-size: 14px;
   }
-}
 
-/* 📲 Tablette */
-@media (min-width: 601px) and (max-width: 1024px) {
-  .text_card {
-    font-size: 1.6rem;
-  }
-  .box {
-    width: 200px;
-    height: 200px;
-  }
-  .box span {
-    transform: rotateY(calc(var(--i) * 45deg)) translateZ(250px);
+  .rest_card button {
+    width: 90px;
+    height: 35px;
+    font-size: 12px;
   }
 }
